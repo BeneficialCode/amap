@@ -2,7 +2,6 @@ import xxtea
 import base64
 import string
 import Crypto.Cipher.AES as AES
-from Crypto.Util.Padding import unpad
 
 def decrypt_user_info():
      # read file
@@ -26,7 +25,7 @@ def decrypt_user_info():
     print(data)
 
 def decrypt_girf_sync_db(encrypted_db,decrypted_db):
-    with open(decrypted_db,"a+b") as file:
+    with open(decrypted_db,"wb") as file:
         header = b"SQLite format 3\0"
         file.write(header)
 
